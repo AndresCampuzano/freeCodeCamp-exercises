@@ -3,16 +3,22 @@ var collection = {
   2548: {
     album: "Slippery When Wet",
     artist: "Bon Jovi",
-    tracks: ["Let It Rock", "You Give Love a Bad Name"]
+    tracks: [
+      "Let It Rock",
+      "You Give Love a Bad Name"
+    ]
   },
   2468: {
     album: "1999",
     artist: "Prince",
-    tracks: ["1999", "Little Red Corvette"]
+    tracks: [
+      "1999",
+      "Little Red Corvette"
+    ]
   },
   1245: {
     artist: "Robert Palmer",
-    tracks: []
+    tracks: [ ]
   },
   5439: {
     album: "ABBA Gold"
@@ -21,13 +27,21 @@ var collection = {
 
 // Only change code below this line
 function updateRecords(id, prop, value) {
-  if (value === "") {
-    delete collection[id][prop];
-  } else if (prop === "tracks") {
-    collection[id][prop] = collection[id][prop] || [];
-    collection[id][prop].push(value);
-  } else {
+  if(prop !== 'tracks' && value !== "") {
     collection[id][prop] = value;
+  }
+  
+  if(prop === 'tracks' && collection[id][prop] === undefined) {
+    collection[id][prop] = [];
+  }
+  
+  if(prop === 'tracks') {
+    let track = collection[id][prop];
+    track.push(value)
+  }
+  
+  if(value === "") {
+    delete collection[id][prop]
   }
 
   return collection;
@@ -35,3 +49,13 @@ function updateRecords(id, prop, value) {
 
 // Alter values below to test your code
 updateRecords(5439, "artist", "ABBA");
+
+
+
+// After updateRecords(5439, "artist", "ABBA"), artist should be "ABBA"
+// After updateRecords(5439, "tracks", "Take a Chance on Me"), tracks should have "Take a Chance on Me" as the last element.
+// After updateRecords(2548, "artist", ""), artist should not be set
+// After updateRecords(1245, "tracks", "Addicted to Love"), tracks should have "Addicted to Love" as the last element.
+// After updateRecords(2468, "tracks", "Free"), tracks should have "1999" as the first element.
+// After updateRecords(2548, "tracks", ""), tracks should not be set
+// After updateRecords(1245, "album", "Riptide"), album should be "Riptide"

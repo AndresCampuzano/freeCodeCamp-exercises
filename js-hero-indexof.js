@@ -3,7 +3,7 @@
 
 // THERE ARE TWO WAYS
 
-// HARD WAY:
+// HARD AND CONFUSING WAY:
 
  function add (par1, par2) {
      var myArray = [];
@@ -31,7 +31,7 @@
  add([1, 2], 2) // returns [ 1, 2 ].
 
 
- // EASY WAY:
+ // EASIER AND BETTER WAY:
 
 
 // function add (par1, par2) {

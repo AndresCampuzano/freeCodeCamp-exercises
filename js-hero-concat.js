@@ -17,3 +17,9 @@ function concatUp (par1, par2) {
         return conc3
     }
 }
+
+concatUp([5, 7], [6]) // returns [ 6, 5, 7 ].
+
+concatUp(['x'], ['a', 'b']) // returns [ 'x', 'a', 'b' ].
+
+concatUp([5, 7], [6, 8]) // returns [ 5, 7, 6, 8 ].

@@ -31,3 +31,12 @@ function list (par) {
 
     }
 }
+
+
+// list has 1 parameter.
+
+list(['Ernie', 'Bert']) // returns 'Ernie and Bert'.
+
+list(['Huey', 'Dewey', 'Louie']) // returns 'Huey, Dewey and Louie'.
+
+list(['C', 'C++', 'Python', 'PHP']) // returns 'C, C++, Python and PHP'.

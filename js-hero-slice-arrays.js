@@ -15,13 +15,13 @@ function halve (num) {
 }
 
 
-halve has 1 parameter.
+// halve has 1 parameter.
 
-halve([1, 2]) returns [ 1 ].
+halve([1, 2]) // returns [ 1 ].
 
-halve([1, 2, 3]) returns [ 1, 2 ].
+halve([1, 2, 3]) // returns [ 1, 2 ].
 
-halve([1, 2, 3, 4]) returns [ 1, 2 ].
+halve([1, 2, 3, 4]) // returns [ 1, 2 ].
 
-halve([1, 2, 3, 4, 5]) returns [ 1, 2, 3 ].
+halve([1, 2, 3, 4, 5]) // returns [ 1, 2, 3 ].
 

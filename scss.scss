@@ -1,0 +1,140 @@
+// funtions
+
+
+// FOR-EACH ↓↓↓↓
+
+$fs : (
+    big: 24px,
+    normal: 16 px,
+    small: 14px,
+    x-small: 12px
+);
+
+// https://platzi.com/clases/1244-sass/10287-ejemplos-de-funciones/
+
+
+$indices:(
+	raiz: 1000,
+	carrousel: 1010,
+	tooltip: 1020,
+	navmenu: 1030,
+	modal: 1040
+);
+
+// una función para que a la hora de usar el map, nos podamos ahorrar algo de código.
+@function setIndex($capa){
+	@return map-get($indices,$capa);
+}
+
+.message{
+  z-index:setIndex(modal)
+}
+
+// Output:
+
+// .message {
+//     z-index: 1040;
+//   }
+
+
+@each $font in (normal, bold, italic) {
+    .test {font-weight: $font;}
+}
+
+// Output:
+
+// .test {
+//     font-weight: normal;
+//   }
+  
+//   .test {
+//     font-weight: bold;
+//   }
+  
+//   .test {
+//     font-weight: italic;
+//   }
+
+@each $font in (normal, bold, italic) {
+    .#{$font} {font-weight: $font;}
+}
+
+// Output:
+
+// .normal {
+//     font-weight: normal;
+//   }
+  
+//   .bold {
+//     font-weight: bold;
+//   }
+  
+//   .italic {
+//     font-weight: italic;
+//   }
+
+
+$name-countries: Colombia, Korea, Japon, China, Thaiwan, US;
+$i: 0px;
+$position: 40px;
+
+@each $name-countries in $name-countries {
+    .#{$name-countries} {
+        background-position: $i, 0;
+    }
+    $i: $i + $position;
+}
+
+
+// output:
+
+//  .Colombia {
+//     background-position: 0px, 0;
+//   }
+  
+//   .Korea {
+//     background-position: 40px, 0;
+//   }
+  
+//   .Japon {
+//     background-position: 80px, 0;
+//   }
+  
+//   .China {
+//     background-position: 120px, 0;
+//   }
+  
+//   .Thaiwan {
+//     background-position: 160px, 0;
+//   }
+  
+//   .US {
+//     background-position: 200px, 0;
+//   }
+
+
+@for $i from 1 to 5 {
+    .class-#{$i} {
+        &:before {
+            content: "#{$i}";
+        }
+    }
+}
+
+// Output:
+
+//  .class-1:before {
+//     content: "1";
+//   }
+  
+//   .class-2:before {
+//     content: "2";
+//   }
+  
+//   .class-3:before {
+//     content: "3";
+//   }
+  
+//   .class-4:before {
+//     content: "4";
+//   }
